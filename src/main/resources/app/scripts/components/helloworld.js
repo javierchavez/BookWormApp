@@ -85,7 +85,6 @@ var Login = React.createClass ({
                    <form role="form" method="post">
                        <br/>user:<input type="text" name="username"/>
                        <br/>password:<input type="password" name="password"/>
-                       <a onClick={this.onSubmit} href="#" > Click Me </a>
                        {this.state.showError ? <h2> Failed to Authenticate</h2> : null}
                    </form>
                </center>

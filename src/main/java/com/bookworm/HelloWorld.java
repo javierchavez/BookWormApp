@@ -1,9 +1,9 @@
-package com.patrickgrimard;
+package com.bookworm;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.patrickgrimard.JsonTransformer.toJson;
+import static com.bookworm.JsonTransformer.toJson;
 import static spark.Spark.before;
 import static spark.Spark.get;
 import static spark.SparkBase.port;
