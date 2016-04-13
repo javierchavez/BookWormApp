@@ -10,11 +10,11 @@ import static spark.SparkBase.port;
 import static spark.SparkBase.staticFileLocation;
 
 /**
- *
+ * Test Server
  */
 public class HelloWorld {
 
-    private static final Map<String, Object> model = new HashMap<>();
+/*    private static final Map<String, Object> model = new HashMap<>();
 
     public static void main(String[] args) {
         model.put("key", "value");
@@ -25,6 +25,6 @@ public class HelloWorld {
         before((req, res) -> res.type("application/json"));
         get("/hello", "application/json", (req, res) -> toJson(model));
         get("/login", "application/json", (req, res) -> toJson(model));
-    }
+    }*/
 
 }
