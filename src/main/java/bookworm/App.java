@@ -23,16 +23,29 @@ public class App
 
     // before any response is sent, set the type of response to be json
     before((req, res) -> res.type("application/json"));
-    get("/hello", "application/json", (req, res) -> toJson(""));
-    get("/login", "application/json", (req, res) -> toJson(""));
-    get("/register", "application/json", (req, res) -> toJson(""));
 
+    // Login endpoint
+    get("/login", "application/json", (req, res) -> toJson(""));
+    post("/login", "application/json", (req, res) -> toJson(""));
+
+    // Registration endpoint
+    get("/register", "application/json", (req, res) -> toJson(""));
     post("/register", "application/json", (request, response) -> {
       return toString();
     });
 
 
     get("/checkout", "application/json", (request, response) -> {
+      User u = db.isLoggedIn(request);
+      if (u == null)
+      {
+        halt("Login required!");
+      }
+
+      return toString();
+    });
+
+    get("/search", "application/json", (request, response) -> {
       User u = db.isLoggedIn(request);
       if (u == null)
       {
