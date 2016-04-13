@@ -1,4 +1,4 @@
-package com.bookworm;
+package bookworm.db;
 
 public class Application {
     private int id = -1;
