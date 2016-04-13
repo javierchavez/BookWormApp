@@ -133,7 +133,7 @@ public class Users extends Transaction<User>
     String password = results.getString("password");
     String salt = results.getString("salt");
 
-    User u = new User();
+    User u = new User(username, "", "");
     u.setEncryptedPassword(password, salt);
     u.setUsername(username);
 

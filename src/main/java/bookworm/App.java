@@ -15,7 +15,7 @@ import static spark.SparkBase.staticFileLocation;
 public class App
 {
 
-  private Users db = new Users(new Sqlite("."));
+  private Users db = new Users(new Sqlite("jdbc:sqlite:test_db.db"));
 
   public App()
   {
@@ -41,17 +41,17 @@ public class App
       User u = db.isLoggedIn(request);
       if (u == null)
       {
-        halt("Login required!");
+        // halt("Login required!");
       }
 
-      return toJson(u);
+      return toJson(new User("javierc", "Javier", "Chavez"));
     });
 
     get("/search", "application/json", (request, response) -> {
       User u = db.isLoggedIn(request);
       if (u == null)
       {
-        halt("Login required!");
+        // halt("Login required!");
       }
 
       return toJson(new Asset("Gone Fishing", Category.BOOK));
