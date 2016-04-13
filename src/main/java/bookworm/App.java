@@ -3,9 +3,11 @@ package bookworm;
 
 import bookworm.db.Users;
 import bookworm.db.backends.Sqlite;
+import bookworm.model.Asset;
+import bookworm.model.Category;
 import bookworm.model.User;
 
-import static bookworm.JsonTransformer.toJson;
+import static bookworm.model.JsonTransformer.toJson;
 import static spark.Spark.*;
 import static spark.SparkBase.port;
 import static spark.SparkBase.staticFileLocation;
@@ -42,7 +44,7 @@ public class App
         halt("Login required!");
       }
 
-      return toString();
+      return toJson(u);
     });
 
     get("/search", "application/json", (request, response) -> {
@@ -52,7 +54,7 @@ public class App
         halt("Login required!");
       }
 
-      return toString();
+      return toJson(new Asset("Gone Fishing", Category.BOOK));
     });
   }
 }
